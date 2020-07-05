@@ -1,4 +1,4 @@
-from .datautils import *
+from preprocess_pipeline.datautils import *
 
 name = "singles"
 protectedIndex = 0 # gender
@@ -24,32 +24,7 @@ def processLine(line):
 
    return tuple(point), label
 
-
-def column(A,j):
-   return [row[j] for row in A]
-
-def transpose(A):
-   return [column(A,j) for j in range(len(A[0]))]
-
-def normalize(L):
-   theMin = min(L)
-   theMax = max(L)
-
-   if theMax == 1 and theMin == 0 or theMax == theMin:
-      return L
-
-   return [(x - theMin) / (theMax - theMin) for x in L]
-
-
-def normalizeExamples(data):
-   points, labels = zip(*data)
-
-   points = transpose([normalize(row) for row in transpose(points)])
-
-   return list(zip(points, labels))
-
-
-def load(normalize=False):
+def load():
    trainFilename, testFilename = datasetFilenames('singles')
 
    with open(trainFilename, 'r') as infile:
@@ -57,10 +32,6 @@ def load(normalize=False):
 
    with open(testFilename, 'r') as infile:
       testData = [processLine(line) for line in infile]
-
-   if normalize:
-      return normalizeExamples(trainingData), normalizeExamples(testData)
-
 
    return trainingData, testData
 

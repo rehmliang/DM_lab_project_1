@@ -1,5 +1,4 @@
-from data.datautils import *
-from itertools import permutations
+from preprocess_pipeline.datautils import *
 
 name = "german"
 protectedIndex = 0
@@ -37,17 +36,7 @@ def load(name = "german"):
 
    return trainingData, testData
 
-#generator that splits the whole data set into split number 
-# of chunks, and yields each permutation of those chunks
-def loadSplit(name = "german", split=3):
-   datasetFilename = datasetFilenameAll(name)
-   with open(trainFilename, 'r') as infile:
-      data = [processLine(line) for line in infile]
 
-   splitL = int(len(data)/split)
-   chunks = [data[splitL*i : splitL*(i+1)] for i in range(split-1)] + [data[(split-1)*splitL:]]
-   for dataChunks in permutations(chunks, split):
-      yield dataChunks
    
 
 
