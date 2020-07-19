@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# select race = ‘Black’ as protected attribute
 
 from data import adult2
 
