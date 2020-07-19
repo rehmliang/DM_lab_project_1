@@ -6,9 +6,10 @@ This is  a github page for DM_lab Project 1.
 
 There are 3 datasets used for this experiment: Census(adult), german, singles
 
-We first did exploratory analyssis for the dataset
+We first did exploratory analyssis for the datasets
+![Alt text]( "optional title")
 
-the analysis for each dataset will be stored in file'dataset exploratory analysis' as .ipynb
+The analysis for each dataset will be stored in file'dataset exploratory analysis' as .ipynb
 
 #### dataset preprocess:
 deal with missing value, i.e, in adult dataset, there ara missing values only in categorical features, and the number will not affect the prediction,so discard all missing value  \
