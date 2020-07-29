@@ -30,14 +30,16 @@ Use the confidence score based on boosting hypothesis to find the optimal error 
 It follows the logic: if the confidence is lower,  it's more possible the data point is misclassified.
 we found the data points with small confidence, and flip their label to achieve statistical parity. \\
 i.e. this figure shows the confidence score of protected group and others of Adaboost:
-![Alt text](https://github.com/rehmliang/DM_lab_project_1/blob/master/method/plots/boost%20adult%20hist.png)
-the SDB method generalize also on Logistic Regression and SVM:
+![Alt text](https://github.com/rehmliang/DM_lab_project_1/blob/master/method/plots/boost%20adult%20hist.png) \\
+The SDB method generalize also on Logistic Regression and SVM:
 
 #### SDB on logistic regression
 deﬁne the conﬁdence of logistic regression simply as the value that the classiﬁer takes before rounding
 #### SDB on SVM
 deﬁne the conﬁdence as the distance of a point from the separating hyperplane
 
-
+#### Experiments and Results
+We reproduce the proposed method in the paper and use the same setup (run the method for each dataset 10 times and take the average, the whole process takes about 12hours)
+The experimental results are reported in the method/experiment-SDB.py and method/experiment-SDB-race , the figures are in  method/plots.
 #### Evaluation metrics: label error, bias(Statistical Parity), RRB(resilience to random bias)
 
