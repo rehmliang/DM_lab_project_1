@@ -28,7 +28,7 @@ train-test split: 2/3  1/3
 
 reindex the protected feature(sensitive) i.e, in adult dataset, set 'sex' in 2nd place
 
-#### Main Idea of the proposed method
+## Main Idea of the proposed method
 Use the confidence score based on boosting hypothesis to find the optimal error decision boundary shift for protected group that achieves statistical Parity. \\
 It follows the logic: if the confidence is lower,  it's more possible the data point is misclassified.
 we found the data points with small confidence, and flip their label to achieve statistical parity. 
@@ -43,19 +43,20 @@ deﬁne the conﬁdence of logistic regression simply as the value that the clas
 #### SDB on SVM
 deﬁne the conﬁdence as the distance of a point from the separating hyperplane
 
-#### Experiments and Results
-We reproduce the proposed method in the paper and use the same setup (run the method for each dataset 10 times and take the average, the whole process takes about 12hours)
+## Experiments and Results
+We reproduce the proposed method in the paper and use the same setup (run the method for each dataset 10 times and take the average, the whole process takes about 12hours).
+Besides, in adult we select 'race' as protected attribute and apply the method on it.
 The experimental results are reported in the method/experiment-SDB.py and method/experiment-SDB-race.py , the figures are in  method/plots.
 #### Evaluation metrics: label error, bias(Statistical Parity), RRB(resilience to random bias)
-#### Conclusion
-## The method achieved fairness-accuracy tradeoff, which can be controlled after training and makes it a fast and transparent method. 
-## Adjusting the decision boundary of learner based on the confidence scores of the misclassified instances.
+## Conclusion
+#### The method achieved fairness-accuracy tradeoff, which can be controlled after training and makes it a fast and transparent method. 
+#### Adjusting the decision boundary of learner based on the confidence scores of the misclassified instances.
 
-## The SDB method can only deal with single protected attribute, if there are more than one sensitive attribute in datasets,  cannot handle all discriminations simultaneously.
+#### The SDB method can only deal with single protected attribute, if there are more than one sensitive attribute in datasets,  cannot handle all discriminations simultaneously.
 
-## It could be combined with other pre-processing or learner-specific in-processing method
+#### It could be combined with other pre-processing or learner-specific in-processing method
 
-## It doesn’t consider the class-imbalance
+#### It doesn’t consider the class-imbalance
 
 
 
